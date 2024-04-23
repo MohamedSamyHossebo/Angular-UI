@@ -1,0 +1,351 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>fd-assignment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">fd-assignment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/header/header.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./header.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-header&#x27;,
+  standalone: true,
+  imports: [],
+  templateUrl: &#x27;./header.component.html&#x27;,
+  styleUrl: &#x27;./header.component.scss&#x27;
+})
+export class HeaderComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;header&quot;&gt;
+        &lt;div class&#x3D;&quot;icon&quot;&gt;
+            &lt;svg width&#x3D;&quot;26&quot; height&#x3D;&quot;26&quot; viewBox&#x3D;&quot;0 0 26 26&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;rect width&#x3D;&quot;26&quot; height&#x3D;&quot;26&quot; rx&#x3D;&quot;6&quot; fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;path opacity&#x3D;&quot;0.5&quot;
+                    d&#x3D;&quot;M13.4518 18.3047C13.6349 18.3473 13.6517 18.5872 13.4733 18.6467L12.42 18.9933C9.77332 19.8467 8.37998 19.1333 7.51998 16.4867L6.66665 13.8533C5.81332 11.2067 6.51998 9.80668 9.16665 8.95334L9.17731 8.94981C9.58018 8.81639 9.98102 9.22365 9.87901 9.63559C9.87264 9.66132 9.8663 9.68724 9.85998 9.71334L9.20665 12.5067C8.47332 15.6467 9.54665 17.38 12.6867 18.1267L13.4518 18.3047Z&quot;
+                    fill&#x3D;&quot;white&quot; /&gt;
+                &lt;path
+                    d&#x3D;&quot;M16.4466 7.14L15.3333 6.88C13.1066 6.35333 11.78 6.78666 11 8.4C10.8 8.80666 10.64 9.3 10.5066 9.86666L9.85331 12.66C9.19998 15.4467 10.06 16.82 12.84 17.48L13.96 17.7467C14.3466 17.84 14.7066 17.9 15.04 17.9267C17.12 18.1267 18.2266 17.1533 18.7866 14.7467L19.44 11.96C20.0933 9.17333 19.24 7.79333 16.4466 7.14ZM15.1933 13.8867C15.1333 14.1133 14.9333 14.26 14.7066 14.26C14.6666 14.26 14.6266 14.2533 14.58 14.2467L12.64 13.7533C12.3733 13.6867 12.2133 13.4133 12.28 13.1467C12.3466 12.88 12.62 12.72 12.8866 12.7867L14.8266 13.28C15.1 13.3467 15.26 13.62 15.1933 13.8867ZM17.1466 11.6333C17.0866 11.86 16.8866 12.0067 16.66 12.0067C16.62 12.0067 16.58 12 16.5333 11.9933L13.3 11.1733C13.0333 11.1067 12.8733 10.8333 12.94 10.5667C13.0066 10.3 13.28 10.14 13.5466 10.2067L16.78 11.0267C17.0533 11.0867 17.2133 11.36 17.1466 11.6333Z&quot;
+                    fill&#x3D;&quot;white&quot; /&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;text&quot;&gt;
+            &lt;p&gt;إنشاء صفقة جديدة&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;x-btn&quot;&gt;
+            &lt;svg width&#x3D;&quot;23&quot; height&#x3D;&quot;22&quot; viewBox&#x3D;&quot;0 0 23 22&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;rect x&#x3D;&quot;0.0286255&quot; width&#x3D;&quot;22.045&quot; height&#x3D;&quot;22&quot; rx&#x3D;&quot;4.8913&quot; fill&#x3D;&quot;#F4F4F4&quot; /&gt;
+                &lt;path
+                    d&#x3D;&quot;M10.6521 11.2144L8.62739 9.19453C8.37211 8.93985 8.37211 8.51832 8.62739 8.26364C8.88268 8.00896 9.30523 8.00896 9.56052 8.26364L11.5852 10.2835L13.6099 8.26364C13.8652 8.00896 14.2877 8.00896 14.543 8.26364C14.7983 8.51832 14.7983 8.93985 14.543 9.19453L12.5183 11.2144L14.543 13.2343C14.7983 13.4889 14.7983 13.9105 14.543 14.1651C14.411 14.2969 14.2437 14.3583 14.0765 14.3583C13.9092 14.3583 13.742 14.2969 13.6099 14.1651L11.5852 12.1453L9.56052 14.1651C9.42847 14.2969 9.26121 14.3583 9.09395 14.3583C8.9267 14.3583 8.75944 14.2969 8.62739 14.1651C8.37211 13.9105 8.37211 13.4889 8.62739 13.2343L10.6521 11.2144Z&quot;
+                    fill&#x3D;&quot;#1C1C28&quot; /&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="header">        <div class="icon">            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">                <rect width="26" height="26" rx="6" fill="#0771DE" />                <path opacity="0.5"                    d="M13.4518 18.3047C13.6349 18.3473 13.6517 18.5872 13.4733 18.6467L12.42 18.9933C9.77332 19.8467 8.37998 19.1333 7.51998 16.4867L6.66665 13.8533C5.81332 11.2067 6.51998 9.80668 9.16665 8.95334L9.17731 8.94981C9.58018 8.81639 9.98102 9.22365 9.87901 9.63559C9.87264 9.66132 9.8663 9.68724 9.85998 9.71334L9.20665 12.5067C8.47332 15.6467 9.54665 17.38 12.6867 18.1267L13.4518 18.3047Z"                    fill="white" />                <path                    d="M16.4466 7.14L15.3333 6.88C13.1066 6.35333 11.78 6.78666 11 8.4C10.8 8.80666 10.64 9.3 10.5066 9.86666L9.85331 12.66C9.19998 15.4467 10.06 16.82 12.84 17.48L13.96 17.7467C14.3466 17.84 14.7066 17.9 15.04 17.9267C17.12 18.1267 18.2266 17.1533 18.7866 14.7467L19.44 11.96C20.0933 9.17333 19.24 7.79333 16.4466 7.14ZM15.1933 13.8867C15.1333 14.1133 14.9333 14.26 14.7066 14.26C14.6666 14.26 14.6266 14.2533 14.58 14.2467L12.64 13.7533C12.3733 13.6867 12.2133 13.4133 12.28 13.1467C12.3466 12.88 12.62 12.72 12.8866 12.7867L14.8266 13.28C15.1 13.3467 15.26 13.62 15.1933 13.8867ZM17.1466 11.6333C17.0866 11.86 16.8866 12.0067 16.66 12.0067C16.62 12.0067 16.58 12 16.5333 11.9933L13.3 11.1733C13.0333 11.1067 12.8733 10.8333 12.94 10.5667C13.0066 10.3 13.28 10.14 13.5466 10.2067L16.78 11.0267C17.0533 11.0867 17.2133 11.36 17.1466 11.6333Z"                    fill="white" />            </svg>        </div>        <div class="text">            <p>إنشاء صفقة جديدة</p>        </div>        <div class="x-btn">            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">                <rect x="0.0286255" width="22.045" height="22" rx="4.8913" fill="#F4F4F4" />                <path                    d="M10.6521 11.2144L8.62739 9.19453C8.37211 8.93985 8.37211 8.51832 8.62739 8.26364C8.88268 8.00896 9.30523 8.00896 9.56052 8.26364L11.5852 10.2835L13.6099 8.26364C13.8652 8.00896 14.2877 8.00896 14.543 8.26364C14.7983 8.51832 14.7983 8.93985 14.543 9.19453L12.5183 11.2144L14.543 13.2343C14.7983 13.4889 14.7983 13.9105 14.543 14.1651C14.411 14.2969 14.2437 14.3583 14.0765 14.3583C13.9092 14.3583 13.742 14.2969 13.6099 14.1651L11.5852 12.1453L9.56052 14.1651C9.42847 14.2969 9.26121 14.3583 9.09395 14.3583C8.9267 14.3583 8.75944 14.2969 8.62739 14.1651C8.37211 13.9105 8.37211 13.4889 8.62739 13.2343L10.6521 11.2144Z"                    fill="#1C1C28" />            </svg>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChipsComponent', 'selector': 'app-chips'},{'name': 'ClientDetailsComponent', 'selector': 'app-client-details'},{'name': 'ClientListComponent', 'selector': 'app-client-list'},{'name': 'DealDetailsComponent', 'selector': 'app-deal-details'},{'name': 'DealsListComponent', 'selector': 'app-deals-list'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProgressBarComponent', 'selector': 'app-progress-bar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

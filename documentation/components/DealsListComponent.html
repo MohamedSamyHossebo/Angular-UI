@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>fd-assignment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">fd-assignment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DealsListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/deals-list/deals-list.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-deals-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>DropdownModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./deals-list.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./deals-list.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#selectedItem" >selectedItem</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedItem"></a>
+                    <span class="name">
+                        <span ><b>selectedItem</b></span>
+                        <a href="#selectedItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/deals-list/deals-list.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { DropdownModule } from &#x27;primeng/dropdown&#x27;;
+
+
+@Component({
+  selector: &#x27;app-deals-list&#x27;,
+  standalone: true,
+  imports: [
+    DropdownModule,
+    FormsModule
+  ],
+  templateUrl: &#x27;./deals-list.component.html&#x27;,
+  styleUrl: &#x27;./deals-list.component.scss&#x27;
+})
+export class DealsListComponent  {
+    
+  selectedItem: string | undefined;
+
+  
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card&quot;&gt;
+    &lt;p-dropdown   [(ngModel)]&#x3D;&quot;selectedItem&quot;
+        placeholder&#x3D;&quot;شراء/تأجير شقة سكنية في منطقة التجمع الأول&quot; [virtualScroll]&#x3D;&quot;true&quot;
+        [virtualScrollItemSize]&#x3D;&quot;3&quot;&gt;&lt;/p-dropdown&gt;
+        &lt;div class&#x3D;&quot;list-icon&quot;&gt;
+            &lt;svg width&#x3D;&quot;40&quot; height&#x3D;&quot;40&quot; viewBox&#x3D;&quot;0 0 40 40&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;g filter&#x3D;&quot;url(#filter0_d_1_758)&quot;&gt;
+                    &lt;rect x&#x3D;&quot;4&quot; width&#x3D;&quot;32&quot; height&#x3D;&quot;32&quot; rx&#x3D;&quot;6&quot; fill&#x3D;&quot;white&quot; /&gt;
+                    &lt;rect x&#x3D;&quot;4.32609&quot; y&#x3D;&quot;0.326087&quot; width&#x3D;&quot;31.3478&quot; height&#x3D;&quot;31.3478&quot; rx&#x3D;&quot;5.67391&quot; stroke&#x3D;&quot;#83899F&quot;
+                        stroke-opacity&#x3D;&quot;0.4&quot; stroke-width&#x3D;&quot;0.652174&quot; /&gt;
+                    &lt;g clip-path&#x3D;&quot;url(#clip0_1_758)&quot;&gt;
+                        &lt;path
+                            d&#x3D;&quot;M15.3333 8H24.6667C26.5067 8 28 9.49333 28 11.3333V20.6667C28 22.5067 26.5067 24 24.6667 24H15.3333C13.4933 24 12 22.5067 12 20.6667V11.3333C12 9.49333 13.4933 8 15.3333 8ZM13.3333 20.6667C13.3333 21.7667 14.2333 22.6667 15.3333 22.6667H24.6667C25.7667 22.6667 26.6667 21.7667 26.6667 20.6667V11.3333C26.6667 10.2333 25.7667 9.33333 24.6667 9.33333H15.3333C14.2333 9.33333 13.3333 10.2333 13.3333 11.3333V20.6667ZM24.6667 14.6667C24.6667 14.3 24.3667 14 24 14H18C17.6333 14 17.3333 14.3 17.3333 14.6667C17.3333 15.0333 17.6333 15.3333 18 15.3333H24C24.3667 15.3333 24.6667 15.0333 24.6667 14.6667ZM24.6667 12C24.6667 11.6333 24.3667 11.3333 24 11.3333H20C19.6333 11.3333 19.3333 11.6333 19.3333 12C19.3333 12.3667 19.6333 12.6667 20 12.6667H24C24.3667 12.6667 24.6667 12.3667 24.6667 12ZM15.3333 17.3333C15.3333 17.7 15.6333 18 16 18H24C24.3667 18 24.6667 17.7 24.6667 17.3333C24.6667 16.9667 24.3667 16.6667 24 16.6667H16C15.6333 16.6667 15.3333 16.9667 15.3333 17.3333ZM21.3333 20C21.3333 20.3667 21.6333 20.6667 22 20.6667H24C24.3667 20.6667 24.6667 20.3667 24.6667 20C24.6667 19.6333 24.3667 19.3333 24 19.3333H22C21.6333 19.3333 21.3333 19.6333 21.3333 20Z&quot;
+                            fill&#x3D;&quot;#83899F&quot; /&gt;
+                    &lt;/g&gt;
+                &lt;/g&gt;
+                &lt;defs&gt;
+                    &lt;filter id&#x3D;&quot;filter0_d_1_758&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;40&quot; height&#x3D;&quot;40&quot; filterUnits&#x3D;&quot;userSpaceOnUse&quot;
+                        color-interpolation-filters&#x3D;&quot;sRGB&quot;&gt;
+                        &lt;feFlood flood-opacity&#x3D;&quot;0&quot; result&#x3D;&quot;BackgroundImageFix&quot; /&gt;
+                        &lt;feColorMatrix in&#x3D;&quot;SourceAlpha&quot; type&#x3D;&quot;matrix&quot; values&#x3D;&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0&quot;
+                            result&#x3D;&quot;hardAlpha&quot; /&gt;
+                        &lt;feOffset dy&#x3D;&quot;4&quot; /&gt;
+                        &lt;feGaussianBlur stdDeviation&#x3D;&quot;2&quot; /&gt;
+                        &lt;feComposite in2&#x3D;&quot;hardAlpha&quot; operator&#x3D;&quot;out&quot; /&gt;
+                        &lt;feColorMatrix type&#x3D;&quot;matrix&quot; values&#x3D;&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in2&#x3D;&quot;BackgroundImageFix&quot; result&#x3D;&quot;effect1_dropShadow_1_758&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in&#x3D;&quot;SourceGraphic&quot; in2&#x3D;&quot;effect1_dropShadow_1_758&quot; result&#x3D;&quot;shape&quot; /&gt;
+                    &lt;/filter&gt;
+                    &lt;clipPath id&#x3D;&quot;clip0_1_758&quot;&gt;
+                        &lt;rect width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;white&quot; transform&#x3D;&quot;matrix(-1 0 0 1 28 8)&quot; /&gt;
+                    &lt;/clipPath&gt;
+                &lt;/defs&gt;
+            &lt;/svg&gt;
+        
+        &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card">    <p-dropdown   [(ngModel)]="selectedItem"        placeholder="شراء/تأجير شقة سكنية في منطقة التجمع الأول" [virtualScroll]="true"        [virtualScrollItemSize]="3"></p-dropdown>        <div class="list-icon">            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">                <g filter="url(#filter0_d_1_758)">                    <rect x="4" width="32" height="32" rx="6" fill="white" />                    <rect x="4.32609" y="0.326087" width="31.3478" height="31.3478" rx="5.67391" stroke="#83899F"                        stroke-opacity="0.4" stroke-width="0.652174" />                    <g clip-path="url(#clip0_1_758)">                        <path                            d="M15.3333 8H24.6667C26.5067 8 28 9.49333 28 11.3333V20.6667C28 22.5067 26.5067 24 24.6667 24H15.3333C13.4933 24 12 22.5067 12 20.6667V11.3333C12 9.49333 13.4933 8 15.3333 8ZM13.3333 20.6667C13.3333 21.7667 14.2333 22.6667 15.3333 22.6667H24.6667C25.7667 22.6667 26.6667 21.7667 26.6667 20.6667V11.3333C26.6667 10.2333 25.7667 9.33333 24.6667 9.33333H15.3333C14.2333 9.33333 13.3333 10.2333 13.3333 11.3333V20.6667ZM24.6667 14.6667C24.6667 14.3 24.3667 14 24 14H18C17.6333 14 17.3333 14.3 17.3333 14.6667C17.3333 15.0333 17.6333 15.3333 18 15.3333H24C24.3667 15.3333 24.6667 15.0333 24.6667 14.6667ZM24.6667 12C24.6667 11.6333 24.3667 11.3333 24 11.3333H20C19.6333 11.3333 19.3333 11.6333 19.3333 12C19.3333 12.3667 19.6333 12.6667 20 12.6667H24C24.3667 12.6667 24.6667 12.3667 24.6667 12ZM15.3333 17.3333C15.3333 17.7 15.6333 18 16 18H24C24.3667 18 24.6667 17.7 24.6667 17.3333C24.6667 16.9667 24.3667 16.6667 24 16.6667H16C15.6333 16.6667 15.3333 16.9667 15.3333 17.3333ZM21.3333 20C21.3333 20.3667 21.6333 20.6667 22 20.6667H24C24.3667 20.6667 24.6667 20.3667 24.6667 20C24.6667 19.6333 24.3667 19.3333 24 19.3333H22C21.6333 19.3333 21.3333 19.6333 21.3333 20Z"                            fill="#83899F" />                    </g>                </g>                <defs>                    <filter id="filter0_d_1_758" x="0" y="0" width="40" height="40" filterUnits="userSpaceOnUse"                        color-interpolation-filters="sRGB">                        <feFlood flood-opacity="0" result="BackgroundImageFix" />                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"                            result="hardAlpha" />                        <feOffset dy="4" />                        <feGaussianBlur stdDeviation="2" />                        <feComposite in2="hardAlpha" operator="out" />                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_758" />                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_758" result="shape" />                    </filter>                    <clipPath id="clip0_1_758">                        <rect width="16" height="16" fill="white" transform="matrix(-1 0 0 1 28 8)" />                    </clipPath>                </defs>            </svg>                </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChipsComponent', 'selector': 'app-chips'},{'name': 'ClientDetailsComponent', 'selector': 'app-client-details'},{'name': 'ClientListComponent', 'selector': 'app-client-list'},{'name': 'DealDetailsComponent', 'selector': 'app-deal-details'},{'name': 'DealsListComponent', 'selector': 'app-deals-list'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProgressBarComponent', 'selector': 'app-progress-bar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DealsListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DealsListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

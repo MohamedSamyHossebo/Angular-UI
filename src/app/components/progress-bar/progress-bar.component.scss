@@ -1,0 +1,136 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    border: 1px solid #DADCE2;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    .text {
+        display: flex;
+        gap: 20px;
+        justify-content: start;
+        text-align: center;
+        margin-top: 20px;
+        margin-right: 20px;
+
+        p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        i {
+            margin-top: 15px;
+        }
+
+        span {
+            margin-top: 15px;
+            outline: 1px solid #DADCE2;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+    }
+
+    .card {
+        width: 700px;
+        margin-right: 150px;
+        margin-top: 40px;
+    }
+
+    // progress bar style
+
+    .progress-container {
+        width: 500px;
+        left: 0px;
+        margin-top: 30px;
+        margin-right: 300px;
+        position: relative;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        padding: 2px;
+        height: 20px;
+        clip-path: polygon(0 0%, 0 100%, 100% 100%);
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+
+        .progress-bar {
+            width: 60%;
+            /*Change this value to adjust the progress*/
+            height: 20px;
+            background-color: #0771DE;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+    }
+
+    .percentage {
+        display: flex;
+        gap: 15px;
+        position: absolute;
+        margin-right: 39%;
+        margin-top: 70px;
+
+        span {
+            color: #DADCE2;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+
+        .percentage {
+            display: none;
+        }
+
+        .progress-container {
+            margin-right: 0;
+            width: 100%;
+
+            .progress-bar {
+                width: 100px;
+                gap: 0;
+            }
+
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+
+        .percentage {
+            span{
+                font-size: 10px;
+                color: black;
+            }
+        }
+
+        .progress-container {
+            margin-right: 0;
+            width: 100%;
+
+            .progress-bar {
+                width: 100px;
+                gap: 0;
+            }
+
+        }
+    }
+}

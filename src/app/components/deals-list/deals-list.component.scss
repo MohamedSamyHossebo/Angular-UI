@@ -1,0 +1,78 @@
+.card {
+    width: 50%;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    justify-items: center;
+    margin-top: 150px;
+
+    .list-icon {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        justify-items: center;
+
+        svg {
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+        }
+
+    }
+
+
+}
+
+::ng-deep.p-dropdown .p-dropdown-label.p-placeholder {
+    color: black !important;
+    font-size: 25px;
+    font-family: Neo Sans Arabic;
+    font-weight: bold;
+    width: 900px;
+}
+
+::ng-deep.p-dropdown {
+    margin-right: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    ::ng-deep.p-dropdown .p-dropdown-label.p-placeholder {
+        color: black !important;
+        font-size: 10px;
+        font-family: Neo Sans Arabic;
+        font-weight: bold;
+        width: 300px;
+    }
+
+    ::ng-deep.p-dropdown {
+        margin: 0;
+    }
+
+    .card {
+        .list-icon {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    ::ng-deep.p-dropdown .p-dropdown-label.p-placeholder {
+        color: black !important;
+        font-size: 18px;
+        font-family: Neo Sans Arabic;
+        font-weight: bold;
+        width: 400px;
+    }
+
+    ::ng-deep.p-dropdown {
+        margin: 0;
+    }
+
+    .card {
+        .list-icon {
+            display: none;
+        }
+    }
+}

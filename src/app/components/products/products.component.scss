@@ -1,0 +1,129 @@
+.container {
+    width: 100%;
+    height: 250px;
+    border: #bfc4c1 solid 1px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-top: 20px;
+
+    .productHeader {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        justify-items: flex-start;
+        border-bottom: #bfc4c1 solid 1px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin: 25px 10px;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .title p {
+            font-size: 26px;
+        }
+
+        .counter {
+            margin: 28px 10px;
+            width: 30px;
+            height: 30px;
+            border: #edf2ef solid 2px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+
+            p {
+                color: #bfc4c1;
+            }
+        }
+
+    }
+
+    .productBody {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+
+        .icon {
+            width: 200px;
+            height: 100px;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .title {
+            h2 {
+                color: #525454;
+            }
+
+            p {
+                color: #bfc4c1;
+                font-size: 20px;
+            }
+        }
+
+        .btn {
+            // 
+            width: 150px;
+            height: 50px;
+            margin-right: 15px;
+            margin-top: 5px;
+
+            p {
+                font-family: Neo Sans Arabic;
+            }
+        }
+    }
+}
+
+::ng-deep.p-button {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        .productBody {
+            .title {
+                p {
+                    font-size: 10px;
+                    // font-weight: bold;
+                }
+            }
+
+            .btn {
+                width: 90px;
+                height: 50px;
+                margin-left: 10px;
+
+                p {
+                    font-family: Neo Sans Arabic;
+                    font-size:10px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

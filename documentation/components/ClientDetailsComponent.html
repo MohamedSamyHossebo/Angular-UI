@@ -1,0 +1,436 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>fd-assignment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">fd-assignment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ClientDetailsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/client-details/client-details.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-client-details</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>InputTextModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./client-details.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./client-details.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+
+@Component({
+  selector: &#x27;app-client-details&#x27;,
+  standalone: true,
+  imports: [InputTextModule],
+  templateUrl: &#x27;./client-details.component.html&#x27;,
+  styleUrl: &#x27;./client-details.component.scss&#x27;
+})
+export class ClientDetailsComponent {
+
+  
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;!-- start of client search --&gt;
+    &lt;div class&#x3D;&quot;client-search&quot;&gt;
+        &lt;div class&#x3D;&quot;text&quot;&gt;
+            &lt;p&gt;حدد العميل &lt;/p&gt;
+            &lt;p&gt;يرجى البحث عن عميل لإختياره&lt;/p&gt;
+            &lt;span class&#x3D;&quot;p-input-icon-left&quot;&gt;
+                &lt;i class&#x3D;&quot;pi pi-search&quot;&gt;&lt;/i&gt;
+                &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;إبحث عن عميل : مثال اسم العميل , رقم الهاتف&quot; pInputText  /&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;icon&quot;&gt;
+            &lt;svg width&#x3D;&quot;62&quot; height&#x3D;&quot;69&quot; viewBox&#x3D;&quot;0 0 62 69&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;g filter&#x3D;&quot;url(#filter0_dd_1_743)&quot;&gt;
+                    &lt;rect x&#x3D;&quot;29&quot; y&#x3D;&quot;9.07324&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; rx&#x3D;&quot;6&quot; fill&#x3D;&quot;white&quot; /&gt;
+                &lt;/g&gt;
+                &lt;path
+                    d&#x3D;&quot;M39.25 15.2399C37.7217 15.2399 36.4792 16.4824 36.4792 18.0107C36.4792 19.5099 37.6517 20.7232 39.18 20.7757C39.2267 20.7699 39.2733 20.7699 39.3083 20.7757C39.32 20.7757 39.3258 20.7757 39.3375 20.7757C39.3433 20.7757 39.3433 20.7757 39.3492 20.7757C40.8425 20.7232 42.015 19.5099 42.0208 18.0107C42.0208 16.4824 40.7783 15.2399 39.25 15.2399Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;path
+                    d&#x3D;&quot;M42.2133 22.3274C40.5858 21.2424 37.9317 21.2424 36.2925 22.3274C35.5517 22.8232 35.1433 23.4941 35.1433 24.2116C35.1433 24.9291 35.5517 25.5941 36.2867 26.0841C37.1033 26.6324 38.1767 26.9066 39.25 26.9066C40.3233 26.9066 41.3967 26.6324 42.2133 26.0841C42.9483 25.5882 43.3567 24.9232 43.3567 24.1999C43.3508 23.4824 42.9483 22.8174 42.2133 22.3274Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;path opacity&#x3D;&quot;0.4&quot;
+                    d&#x3D;&quot;M45.6608 18.3549C45.7542 19.4866 44.9492 20.4782 43.835 20.6124C43.8292 20.6124 43.8292 20.6124 43.8233 20.6124H43.8058C43.7708 20.6124 43.7358 20.6124 43.7067 20.6241C43.1408 20.6532 42.6217 20.4724 42.2308 20.1399C42.8317 19.6032 43.1758 18.7982 43.1058 17.9232C43.065 17.4507 42.9017 17.0191 42.6567 16.6516C42.8783 16.5407 43.135 16.4707 43.3975 16.4474C44.5408 16.3482 45.5617 17.1999 45.6608 18.3549Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;path opacity&#x3D;&quot;0.4&quot;
+                    d&#x3D;&quot;M46.8275 23.7507C46.7808 24.3166 46.4192 24.8066 45.8125 25.1391C45.2292 25.4599 44.4942 25.6116 43.765 25.5941C44.185 25.2149 44.43 24.7424 44.4767 24.2407C44.535 23.5174 44.1908 22.8232 43.5025 22.2691C43.1117 21.9599 42.6567 21.7149 42.1608 21.5341C43.45 21.1607 45.0717 21.4116 46.0692 22.2166C46.6058 22.6482 46.88 23.1907 46.8275 23.7507Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;defs&gt;
+                    &lt;filter id&#x3D;&quot;filter0_dd_1_743&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;-13.9268&quot; width&#x3D;&quot;82&quot; height&#x3D;&quot;82&quot; filterUnits&#x3D;&quot;userSpaceOnUse&quot;
+                        color-interpolation-filters&#x3D;&quot;sRGB&quot;&gt;
+                        &lt;feFlood flood-opacity&#x3D;&quot;0&quot; result&#x3D;&quot;BackgroundImageFix&quot; /&gt;
+                        &lt;feColorMatrix in&#x3D;&quot;SourceAlpha&quot; type&#x3D;&quot;matrix&quot; values&#x3D;&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0&quot;
+                            result&#x3D;&quot;hardAlpha&quot; /&gt;
+                        &lt;feOffset dy&#x3D;&quot;0.751293&quot; /&gt;
+                        &lt;feGaussianBlur stdDeviation&#x3D;&quot;1.81563&quot; /&gt;
+                        &lt;feColorMatrix type&#x3D;&quot;matrix&quot;
+                            values&#x3D;&quot;0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.035 0&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in2&#x3D;&quot;BackgroundImageFix&quot; result&#x3D;&quot;effect1_dropShadow_1_743&quot; /&gt;
+                        &lt;feColorMatrix in&#x3D;&quot;SourceAlpha&quot; type&#x3D;&quot;matrix&quot; values&#x3D;&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0&quot;
+                            result&#x3D;&quot;hardAlpha&quot; /&gt;
+                        &lt;feOffset dy&#x3D;&quot;6&quot; /&gt;
+                        &lt;feGaussianBlur stdDeviation&#x3D;&quot;14.5&quot; /&gt;
+                        &lt;feColorMatrix type&#x3D;&quot;matrix&quot;
+                            values&#x3D;&quot;0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.07 0&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in2&#x3D;&quot;effect1_dropShadow_1_743&quot; result&#x3D;&quot;effect2_dropShadow_1_743&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in&#x3D;&quot;SourceGraphic&quot; in2&#x3D;&quot;effect2_dropShadow_1_743&quot; result&#x3D;&quot;shape&quot; /&gt;
+                    &lt;/filter&gt;
+                &lt;/defs&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- end of client search --&gt;
+    &lt;div class&#x3D;&quot;deal-cost&quot;&gt;
+        &lt;div class&#x3D;&quot;text&quot;&gt;
+            &lt;p&gt;سعر الصفقة&lt;/p&gt;
+            &lt;p&gt;سعر الصفقة هو المبلع المدفوع شامل الضرائب&lt;/p&gt;
+            &lt;span&gt;
+                &lt;input id&#x3D;&quot;disabled-input&quot; placeholder&#x3D;&quot;$50,000&quot; type&#x3D;&quot;text&quot; pInputText [disabled]&#x3D;&quot;true&quot; /&gt;
+            &lt;/span&gt;
+            
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;icon&quot;&gt;
+            &lt;svg width&#x3D;&quot;63&quot; height&#x3D;&quot;69&quot; viewBox&#x3D;&quot;0 0 63 69&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;g filter&#x3D;&quot;url(#filter0_dd_1_984)&quot;&gt;
+                    &lt;rect x&#x3D;&quot;29&quot; y&#x3D;&quot;9.0733&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; rx&#x3D;&quot;6&quot; fill&#x3D;&quot;#E8F2FF&quot; /&gt;
+                &lt;/g&gt;
+                &lt;path opacity&#x3D;&quot;0.5&quot;
+                    d&#x3D;&quot;M40.965 15.2892L39.5592 18.5617H38.1533C37.92 18.5617 37.6925 18.5792 37.4708 18.6258L38.0542 17.2258L38.0775 17.1733L38.1125 17.08C38.13 17.0392 38.1417 17.0042 38.1592 16.975C38.8358 15.4058 39.5942 14.9158 40.965 15.2892Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;path opacity&#x3D;&quot;0.5&quot;
+                    d&#x3D;&quot;M44.9258 18.7192L44.9142 18.7133C44.5642 18.6142 44.2083 18.5617 43.8467 18.5617H40.195L41.5075 15.5108L41.525 15.47C41.6067 15.4992 41.6942 15.54 41.7817 15.5692L43.0708 16.1117C43.7883 16.4092 44.29 16.7183 44.5992 17.0917C44.6517 17.1617 44.6983 17.2258 44.745 17.3017C44.7975 17.3833 44.8383 17.465 44.8617 17.5525C44.885 17.605 44.9025 17.6517 44.9142 17.7042C45.0017 18.0017 45.0075 18.34 44.9258 18.7192Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;path
+                    d&#x3D;&quot;M44.6692 19.5533C44.4067 19.4775 44.1325 19.4367 43.8467 19.4367H38.1533C37.7567 19.4367 37.3833 19.5125 37.0333 19.6642C36.0183 20.1017 35.3067 21.1108 35.3067 22.2833V23.4208C35.3067 23.5608 35.3183 23.695 35.3358 23.835C35.4642 25.69 36.4558 26.6817 38.3108 26.8042C38.445 26.8217 38.5792 26.8333 38.725 26.8333H43.275C45.4333 26.8333 46.5708 25.8067 46.6817 23.765C46.6875 23.6542 46.6933 23.5375 46.6933 23.4208V22.2833C46.6933 20.9942 45.8358 19.9092 44.6692 19.5533ZM42.4583 23.7708H39.5417C39.3025 23.7708 39.1042 23.5725 39.1042 23.3333C39.1042 23.0942 39.3025 22.8958 39.5417 22.8958H42.4583C42.6975 22.8958 42.8958 23.0942 42.8958 23.3333C42.8958 23.5725 42.6975 23.7708 42.4583 23.7708Z&quot;
+                    fill&#x3D;&quot;#0771DE&quot; /&gt;
+                &lt;defs&gt;
+                    &lt;filter id&#x3D;&quot;filter0_dd_1_984&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;-13.9267&quot; width&#x3D;&quot;82&quot; height&#x3D;&quot;82&quot; filterUnits&#x3D;&quot;userSpaceOnUse&quot;
+                        color-interpolation-filters&#x3D;&quot;sRGB&quot;&gt;
+                        &lt;feFlood flood-opacity&#x3D;&quot;0&quot; result&#x3D;&quot;BackgroundImageFix&quot; /&gt;
+                        &lt;feColorMatrix in&#x3D;&quot;SourceAlpha&quot; type&#x3D;&quot;matrix&quot; values&#x3D;&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0&quot;
+                            result&#x3D;&quot;hardAlpha&quot; /&gt;
+                        &lt;feOffset dy&#x3D;&quot;0.751293&quot; /&gt;
+                        &lt;feGaussianBlur stdDeviation&#x3D;&quot;1.81563&quot; /&gt;
+                        &lt;feColorMatrix type&#x3D;&quot;matrix&quot;
+                            values&#x3D;&quot;0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.035 0&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in2&#x3D;&quot;BackgroundImageFix&quot; result&#x3D;&quot;effect1_dropShadow_1_984&quot; /&gt;
+                        &lt;feColorMatrix in&#x3D;&quot;SourceAlpha&quot; type&#x3D;&quot;matrix&quot; values&#x3D;&quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0&quot;
+                            result&#x3D;&quot;hardAlpha&quot; /&gt;
+                        &lt;feOffset dy&#x3D;&quot;6&quot; /&gt;
+                        &lt;feGaussianBlur stdDeviation&#x3D;&quot;14.5&quot; /&gt;
+                        &lt;feColorMatrix type&#x3D;&quot;matrix&quot;
+                            values&#x3D;&quot;0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.07 0&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in2&#x3D;&quot;effect1_dropShadow_1_984&quot; result&#x3D;&quot;effect2_dropShadow_1_984&quot; /&gt;
+                        &lt;feBlend mode&#x3D;&quot;normal&quot; in&#x3D;&quot;SourceGraphic&quot; in2&#x3D;&quot;effect2_dropShadow_1_984&quot; result&#x3D;&quot;shape&quot; /&gt;
+                    &lt;/filter&gt;
+                &lt;/defs&gt;
+            &lt;/svg&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <!-- start of client search -->    <div class="client-search">        <div class="text">            <p>حدد العميل </p>            <p>يرجى البحث عن عميل لإختياره</p>            <span class="p-input-icon-left">                <i class="pi pi-search"></i>                <input type="text" placeholder="إبحث عن عميل : مثال اسم العميل , رقم الهاتف" pInputText  />            </span>        </div>        <div class="icon">            <svg width="62" height="69" viewBox="0 0 62 69" fill="none" xmlns="http://www.w3.org/2000/svg">                <g filter="url(#filter0_dd_1_743)">                    <rect x="29" y="9.07324" width="24" height="24" rx="6" fill="white" />                </g>                <path                    d="M39.25 15.2399C37.7217 15.2399 36.4792 16.4824 36.4792 18.0107C36.4792 19.5099 37.6517 20.7232 39.18 20.7757C39.2267 20.7699 39.2733 20.7699 39.3083 20.7757C39.32 20.7757 39.3258 20.7757 39.3375 20.7757C39.3433 20.7757 39.3433 20.7757 39.3492 20.7757C40.8425 20.7232 42.015 19.5099 42.0208 18.0107C42.0208 16.4824 40.7783 15.2399 39.25 15.2399Z"                    fill="#0771DE" />                <path                    d="M42.2133 22.3274C40.5858 21.2424 37.9317 21.2424 36.2925 22.3274C35.5517 22.8232 35.1433 23.4941 35.1433 24.2116C35.1433 24.9291 35.5517 25.5941 36.2867 26.0841C37.1033 26.6324 38.1767 26.9066 39.25 26.9066C40.3233 26.9066 41.3967 26.6324 42.2133 26.0841C42.9483 25.5882 43.3567 24.9232 43.3567 24.1999C43.3508 23.4824 42.9483 22.8174 42.2133 22.3274Z"                    fill="#0771DE" />                <path opacity="0.4"                    d="M45.6608 18.3549C45.7542 19.4866 44.9492 20.4782 43.835 20.6124C43.8292 20.6124 43.8292 20.6124 43.8233 20.6124H43.8058C43.7708 20.6124 43.7358 20.6124 43.7067 20.6241C43.1408 20.6532 42.6217 20.4724 42.2308 20.1399C42.8317 19.6032 43.1758 18.7982 43.1058 17.9232C43.065 17.4507 42.9017 17.0191 42.6567 16.6516C42.8783 16.5407 43.135 16.4707 43.3975 16.4474C44.5408 16.3482 45.5617 17.1999 45.6608 18.3549Z"                    fill="#0771DE" />                <path opacity="0.4"                    d="M46.8275 23.7507C46.7808 24.3166 46.4192 24.8066 45.8125 25.1391C45.2292 25.4599 44.4942 25.6116 43.765 25.5941C44.185 25.2149 44.43 24.7424 44.4767 24.2407C44.535 23.5174 44.1908 22.8232 43.5025 22.2691C43.1117 21.9599 42.6567 21.7149 42.1608 21.5341C43.45 21.1607 45.0717 21.4116 46.0692 22.2166C46.6058 22.6482 46.88 23.1907 46.8275 23.7507Z"                    fill="#0771DE" />                <defs>                    <filter id="filter0_dd_1_743" x="0" y="-13.9268" width="82" height="82" filterUnits="userSpaceOnUse"                        color-interpolation-filters="sRGB">                        <feFlood flood-opacity="0" result="BackgroundImageFix" />                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"                            result="hardAlpha" />                        <feOffset dy="0.751293" />                        <feGaussianBlur stdDeviation="1.81563" />                        <feColorMatrix type="matrix"                            values="0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.035 0" />                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_743" />                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"                            result="hardAlpha" />                        <feOffset dy="6" />                        <feGaussianBlur stdDeviation="14.5" />                        <feColorMatrix type="matrix"                            values="0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.07 0" />                        <feBlend mode="normal" in2="effect1_dropShadow_1_743" result="effect2_dropShadow_1_743" />                        <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1_743" result="shape" />                    </filter>                </defs>            </svg>        </div>    </div>    <!-- end of client search -->    <div class="deal-cost">        <div class="text">            <p>سعر الصفقة</p>            <p>سعر الصفقة هو المبلع المدفوع شامل الضرائب</p>            <span>                <input id="disabled-input" placeholder="$50,000" type="text" pInputText [disabled]="true" />            </span>                    </div>        <div class="icon">            <svg width="63" height="69" viewBox="0 0 63 69" fill="none" xmlns="http://www.w3.org/2000/svg">                <g filter="url(#filter0_dd_1_984)">                    <rect x="29" y="9.0733" width="24" height="24" rx="6" fill="#E8F2FF" />                </g>                <path opacity="0.5"                    d="M40.965 15.2892L39.5592 18.5617H38.1533C37.92 18.5617 37.6925 18.5792 37.4708 18.6258L38.0542 17.2258L38.0775 17.1733L38.1125 17.08C38.13 17.0392 38.1417 17.0042 38.1592 16.975C38.8358 15.4058 39.5942 14.9158 40.965 15.2892Z"                    fill="#0771DE" />                <path opacity="0.5"                    d="M44.9258 18.7192L44.9142 18.7133C44.5642 18.6142 44.2083 18.5617 43.8467 18.5617H40.195L41.5075 15.5108L41.525 15.47C41.6067 15.4992 41.6942 15.54 41.7817 15.5692L43.0708 16.1117C43.7883 16.4092 44.29 16.7183 44.5992 17.0917C44.6517 17.1617 44.6983 17.2258 44.745 17.3017C44.7975 17.3833 44.8383 17.465 44.8617 17.5525C44.885 17.605 44.9025 17.6517 44.9142 17.7042C45.0017 18.0017 45.0075 18.34 44.9258 18.7192Z"                    fill="#0771DE" />                <path                    d="M44.6692 19.5533C44.4067 19.4775 44.1325 19.4367 43.8467 19.4367H38.1533C37.7567 19.4367 37.3833 19.5125 37.0333 19.6642C36.0183 20.1017 35.3067 21.1108 35.3067 22.2833V23.4208C35.3067 23.5608 35.3183 23.695 35.3358 23.835C35.4642 25.69 36.4558 26.6817 38.3108 26.8042C38.445 26.8217 38.5792 26.8333 38.725 26.8333H43.275C45.4333 26.8333 46.5708 25.8067 46.6817 23.765C46.6875 23.6542 46.6933 23.5375 46.6933 23.4208V22.2833C46.6933 20.9942 45.8358 19.9092 44.6692 19.5533ZM42.4583 23.7708H39.5417C39.3025 23.7708 39.1042 23.5725 39.1042 23.3333C39.1042 23.0942 39.3025 22.8958 39.5417 22.8958H42.4583C42.6975 22.8958 42.8958 23.0942 42.8958 23.3333C42.8958 23.5725 42.6975 23.7708 42.4583 23.7708Z"                    fill="#0771DE" />                <defs>                    <filter id="filter0_dd_1_984" x="0" y="-13.9267" width="82" height="82" filterUnits="userSpaceOnUse"                        color-interpolation-filters="sRGB">                        <feFlood flood-opacity="0" result="BackgroundImageFix" />                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"                            result="hardAlpha" />                        <feOffset dy="0.751293" />                        <feGaussianBlur stdDeviation="1.81563" />                        <feColorMatrix type="matrix"                            values="0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.035 0" />                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_984" />                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"                            result="hardAlpha" />                        <feOffset dy="6" />                        <feGaussianBlur stdDeviation="14.5" />                        <feColorMatrix type="matrix"                            values="0 0 0 0 0.34902 0 0 0 0 0.423529 0 0 0 0 0.580392 0 0 0 0.07 0" />                        <feBlend mode="normal" in2="effect1_dropShadow_1_984" result="effect2_dropShadow_1_984" />                        <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1_984" result="shape" />                    </filter>                </defs>            </svg>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChipsComponent', 'selector': 'app-chips'},{'name': 'ClientDetailsComponent', 'selector': 'app-client-details'},{'name': 'ClientListComponent', 'selector': 'app-client-list'},{'name': 'DealDetailsComponent', 'selector': 'app-deal-details'},{'name': 'DealsListComponent', 'selector': 'app-deals-list'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProgressBarComponent', 'selector': 'app-progress-bar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ClientDetailsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClientDetailsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
